@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import ContactDetails from "./ContactDetails";
 
 // Components - Functional and Class Component
 function App() {
@@ -43,8 +44,9 @@ function App() {
           <Route
             path="/"
             exact
-            component={() => (
+            render={(props) => (
               <ContactList
+                {...props}
                 contacts={contacts}
                 getContactId={removeContactHandler}
               />
@@ -52,14 +54,12 @@ function App() {
           />
           <Route
             path="/add"
-            component={() => (
-              <AddContact addContactHandler={addContactHandler} />
+            render={(props) => (
+              <AddContact {...props} addContactHandler={addContactHandler} />
             )}
           />
+          <Route path='/contact/:id' component={ContactDetails} />
         </Switch>
-
-        {/* <AddContact addContactHandler={addContactHandler} />
-        <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
       </Router>
     </div>
   );

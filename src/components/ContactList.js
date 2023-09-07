@@ -19,7 +19,7 @@ const ContactList = (props) => {
     );
   });
   return (
-    <div class="main">
+    <div className="main">
       <h2 style={{ marginTop: "50px" }}>
         Contact List
         <Link to="/add">
